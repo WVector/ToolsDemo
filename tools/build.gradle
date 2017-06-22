@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'//添加
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-annotations:26.0.0-alpha1'
+}
+//添加
+publish {
+    userOrg = 'qianwen'//bintray.com用户名
+    groupId = 'com.qianwen'//jcenter上的路径
+    artifactId = 'tools'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'android工具集合'
+    website = 'https://github.com/WVector/AppUpdateDemo'
+}
+repositories {
+    mavenCentral()
+}
