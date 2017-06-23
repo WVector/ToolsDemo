@@ -96,10 +96,11 @@ public class PBE {
         //执行操作
         return cipher.doFinal(data);
     }
+
     /**
-     * 使用PBE算法对数据进行加解密
-     * @throws Exception
      *
+     * @param args 使用PBE算法对数据进行加解密
+     * @throws Exception 使用PBE算法对数据进行加解密
      */
     public static void main(String[] args) throws Exception {
         //待加密数据

@@ -20,7 +20,6 @@ public class AES {
 
     /**
      * 加密/解密算法/工作模式/填充方式
-     * <p/>
      * JAVA6 支持PKCS5PADDING填充方式
      * Bouncy castle支持PKCS7Padding填充方式
      */

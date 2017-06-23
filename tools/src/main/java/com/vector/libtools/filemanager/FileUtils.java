@@ -195,7 +195,6 @@ public class FileUtils {
      * @param src  源文件
      * @param dest 目标文件
      * @return 返回操作结果
-     * @throws FileNotFoundException
      */
     public static boolean copyFile(File src, File dest) {
         if (!src.exists())
@@ -434,8 +433,8 @@ public class FileUtils {
     }
 
     /**
-     * 检查文件是否过期 <br />
-     * 若文件不存在，则直接返回true <br />
+     * 检查文件是否过期
+     * 若文件不存在，则直接返回true
      * time指定过期的秒数
      *
      * @param file

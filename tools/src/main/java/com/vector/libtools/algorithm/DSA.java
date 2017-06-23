@@ -68,9 +68,10 @@ public class DSA {
     /**
      * 签名
      *
-     * @param data待签名数据
+     * @param data 待签名数据
      * @param privateKey 密钥
      * @return byte[] 数字签名
+     * @throws Exception 异常
      */
     public static byte[] sign(byte[] data, byte[] privateKey) throws Exception {
 

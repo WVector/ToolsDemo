@@ -45,6 +45,7 @@ public class RSA {
      * 初始化密钥对
      *
      * @return Map 甲方密钥的Map
+     *  @throws Exception 异常
      */
     public static Map<String, Object> initKey() throws Exception {
         //实例化密钥生成器
@@ -69,9 +70,10 @@ public class RSA {
     /**
      * 私钥加密
      *
-     * @param data待加密数据
+     * @param data 待加密数据
      * @param key       密钥
      * @return byte[] 加密数据
+     * @throws Exception 异常
      */
     public static byte[] encryptByPrivateKey(byte[] data, byte[] key) throws Exception {
 
@@ -89,7 +91,7 @@ public class RSA {
     /**
      * 公钥加密
      *
-     * @param data待加密数据
+     * @param data 待加密数据
      * @param key       密钥
      * @return byte[] 加密数据
      */
@@ -175,7 +177,7 @@ public class RSA {
     /**
      * 签名
      *
-     * @param data待签名数据
+     * @param data 待签名数据
      * @param privateKey 密钥
      * @return byte[] 数字签名
      */

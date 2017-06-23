@@ -67,7 +67,7 @@ public class UIUtils {
      * @param delayTime 延时
      */
 
-    public static void postDelayed(long delayTime,Runnable runnable ) {
+    public static void postDelayed(long delayTime, Runnable runnable) {
         getHandler().postDelayed(runnable, delayTime);
     }
 
@@ -92,6 +92,7 @@ public class UIUtils {
 
     /**
      * 这个也是合法的, 但是Inflate出来的View是根据你当前系统的默认主题(Theme)的, 而非你的Application所使用的主题.
+     *
      * @param layoutId
      * @return
      */
@@ -185,8 +186,8 @@ public class UIUtils {
      *
      * @param cornerRadius 圆角
      * @param alpha        随机颜色的透明度
-     * @param lower        随机颜色的下边界 lower>=0
-     * @param upper        随机颜色的上边界 upper<=255
+     * @param lower        随机颜色的下边界
+     * @param upper        随机颜色的上边界
      * @param normalArgb   正常的颜色
      * @return 状态选择器
      */
@@ -401,7 +402,6 @@ public class UIUtils {
         listView.setLayoutParams(params);
 
     }
-
 
 
 }

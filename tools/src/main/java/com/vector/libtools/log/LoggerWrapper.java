@@ -13,9 +13,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @edit Jack Tony
- * @edit haoGe
- * @date 2015/8/25
+ *  Jack Tony
+ *  haoGe
+ *  2015/8/25
  */
 public class LoggerWrapper {
 

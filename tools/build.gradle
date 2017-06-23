@@ -32,10 +32,10 @@ dependencies {
 publish {
     userOrg = 'qianwen'//bintray.com用户名
     groupId = 'com.qianwen'//jcenter上的路径
-    artifactId = 'tools'//项目名称
+    artifactId = 'android-tools'//项目名称
     publishVersion = '1.0.0'//版本号
     desc = 'android工具集合'
-    website = 'https://github.com/WVector/AppUpdateDemo'
+    website = 'https://github.com/WVector/ToolsDemo'
 }
 repositories {
     mavenCentral()

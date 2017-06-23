@@ -102,7 +102,6 @@ public class SPUtils {
     /**
      * SP中读取int
      *
-     * @param context 上下文
      * @param key     键
      * @return 存在返回对应值，不存在返回默认值-1
      */
@@ -135,7 +134,6 @@ public class SPUtils {
     /**
      * SP中读取long
      *
-     * @param context 上下文
      * @param key     键
      * @return 存在返回对应值，不存在返回默认值-1
      */
@@ -168,7 +166,6 @@ public class SPUtils {
     /**
      * SP中读取float
      *
-     * @param context 上下文
      * @param key     键
      * @return 存在返回对应值，不存在返回默认值-1
      */
