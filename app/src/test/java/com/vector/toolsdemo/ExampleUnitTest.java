@@ -12,6 +12,10 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
+
+        double sqrt = Math.sqrt(0.0D);
+
+        System.out.println(sqrt);
         assertEquals(4, 2 + 2);
     }
 }

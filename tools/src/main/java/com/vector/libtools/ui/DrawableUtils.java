@@ -22,6 +22,87 @@ public class DrawableUtils {
     }
 
     /**
+     * 加深颜色
+     *
+     * @param color 原色
+     * @return 加深后的
+     */
+    public int colorDeep(int color) {
+
+        int alpha = Color.alpha(color);
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+
+        float ratio = 0.8F;
+
+        red = (int) (red * ratio);
+        green = (int) (green * ratio);
+        blue = (int) (blue * ratio);
+
+        return Color.argb(alpha, red, green, blue);
+    }
+
+    /**
+     * 随机颜色
+     */
+    public static class RandomColor {
+        int alpha;
+        int lower;
+        int upper;
+
+        public RandomColor(int alpha, int lower, int upper) {
+            if (upper <= lower) {
+                throw new IllegalArgumentException("must be lower < upper");
+            }
+            setAlpha(alpha);
+            setLower(lower);
+            setUpper(upper);
+
+        }
+
+        public int getColor() {
+
+            //随机数是前闭  后开
+
+            int red = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
+            int green = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
+            int blue = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
+
+
+            return Color.argb(getAlpha(), red, green, blue);
+        }
+
+        public int getAlpha() {
+            return alpha;
+        }
+
+        public void setAlpha(int alpha) {
+            if (alpha > 255) alpha = 255;
+            if (alpha < 0) alpha = 0;
+            this.alpha = alpha;
+        }
+
+        public int getLower() {
+            return lower;
+        }
+
+        public void setLower(int lower) {
+            if (lower < 0) lower = 0;
+            this.lower = lower;
+        }
+
+        public int getUpper() {
+            return upper;
+        }
+
+        public void setUpper(int upper) {
+            if (upper > 255) upper = 255;
+            this.upper = upper;
+        }
+    }
+
+    /**
      * 按条件的到随机颜色
      *
      * @param alpha 透明
@@ -122,64 +203,6 @@ public class DrawableUtils {
 
     }
 
-    /**
-     * 随机颜色
-     */
-    public static class RandomColor {
-        int alpha;
-        int lower;
-        int upper;
-
-        public RandomColor(int alpha, int lower, int upper) {
-            if (upper <= lower) {
-                throw new IllegalArgumentException("must be lower < upper");
-            }
-            setAlpha(alpha);
-            setLower(lower);
-            setUpper(upper);
-
-        }
-
-        public int getColor() {
-
-            //随机数是前闭  后开
-
-            int red = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
-            int green = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
-            int blue = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
-
-
-            return Color.argb(getAlpha(), red, green, blue);
-        }
-
-        public int getAlpha() {
-            return alpha;
-        }
-
-        public void setAlpha(int alpha) {
-            if (alpha > 255) alpha = 255;
-            if (alpha < 0) alpha = 0;
-            this.alpha = alpha;
-        }
-
-        public int getLower() {
-            return lower;
-        }
-
-        public void setLower(int lower) {
-            if (lower < 0) lower = 0;
-            this.lower = lower;
-        }
-
-        public int getUpper() {
-            return upper;
-        }
-
-        public void setUpper(int upper) {
-            if (upper > 255) upper = 255;
-            this.upper = upper;
-        }
-    }
 
     /**
      * 颜色选择器
