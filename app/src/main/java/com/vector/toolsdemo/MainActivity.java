@@ -47,10 +47,14 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int red = 0xff000000;
+                int red = 0xffFF0000;
                 srcIv.setBackgroundColor(red);
+
+                descIv.setBackgroundColor(DrawableUtils.colorDeep(red));
             }
         });
+
+        srcIv.setAlpha(0.1f);
 
     }
 

@@ -27,7 +27,7 @@ public class DrawableUtils {
      * @param color 原色
      * @return 加深后的
      */
-    public int colorDeep(int color) {
+    public static int colorDeep(int color) {
 
         int alpha = Color.alpha(color);
         int red = Color.red(color);
