@@ -58,7 +58,7 @@ public class DrawableUtils {
         // 设置绘画图片色值
         gradientDrawable.setColor(rgb);
         // 绘画的是矩形
-        gradientDrawable.setGradientType(GradientDrawable.RECTANGLE);
+        gradientDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
         // 设置矩形的圆角半径
         gradientDrawable.setCornerRadius(r);
 
@@ -210,7 +210,7 @@ public class DrawableUtils {
         gradientDrawable.setStroke(strokeWidth, strokeArgb);
         gradientDrawable.setColor(solidArgb);
         gradientDrawable.setCornerRadius(cornerRadius);
-        gradientDrawable.setGradientType(GradientDrawable.RECTANGLE);
+        gradientDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
         return gradientDrawable;
 
     }
@@ -226,7 +226,7 @@ public class DrawableUtils {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(cornerRadius);
         gradientDrawable.setColor(solidArgb);
-        gradientDrawable.setGradientType(GradientDrawable.RECTANGLE);
+        gradientDrawable.setGradientType(GradientDrawable.RADIAL_GRADIENT);
         return gradientDrawable;
     }
 

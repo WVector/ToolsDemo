@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
+import com.vector.libtools.ui.DrawableUtils;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,11 +23,12 @@ public class MainActivity extends AppCompatActivity {
         // 设置矩形的圆角半径
         gradientDrawable.setCornerRadius(30);
 
-        gradientDrawable.setStroke(4,Color.RED);
+        gradientDrawable.setStroke(4, Color.RED);
 
         Button button = (Button) findViewById(R.id.btn);
 
-        button.setBackgroundDrawable(gradientDrawable);
+
+        button.setBackgroundDrawable(DrawableUtils.getDrawable(6, 3, Color.MAGENTA, Color.LTGRAY));
 
     }
 }
