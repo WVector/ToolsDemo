@@ -11,7 +11,7 @@
         android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="计算颜色加深"
         />
 
     <ImageView
@@ -24,6 +24,22 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"/>
 
+    <Button
+        android:id="@+id/btn_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="change"
+        android:text="字体颜色随背景变化"
+        />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="测试自动颜色"
+        android:textSize="30sp"
+        android:textStyle="bold"/>
 
 
 </LinearLayout>

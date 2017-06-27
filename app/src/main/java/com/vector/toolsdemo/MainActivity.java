@@ -9,12 +9,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.vector.libtools.ui.DrawableUtils;
 
 import static com.vector.toolsdemo.R.id.btn;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView mTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,25 @@ public class MainActivity extends AppCompatActivity {
 
         srcIv.setAlpha(0.1f);
 
+
+        mTextView = (TextView) findViewById(R.id.tv_result);
+
+    }
+
+    public void change(View view) {
+        int color = 0xffeeffff;
+        float a = (Color.red(color) * 0.299f + Color.green(color) * 0.587f + Color.blue(color) * 0.114f);
+
+        Log.d("MainActivity", "a:" + a);
+
+        if (a > 180) {
+
+            mTextView.setTextColor(Color.parseColor("#FF222222"));
+        } else {
+            mTextView.setTextColor(Color.parseColor("#FFEEEEEE"));
+        }
+
+        mTextView.setBackgroundColor(color);
     }
 
 

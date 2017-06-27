@@ -44,62 +44,12 @@ public class DrawableUtils {
     }
 
     /**
-     * 随机颜色
+     * @param color 背景颜色
+     * @return 前景色是否深色
      */
-    public static class RandomColor {
-        int alpha;
-        int lower;
-        int upper;
-
-        public RandomColor(int alpha, int lower, int upper) {
-            if (upper <= lower) {
-                throw new IllegalArgumentException("must be lower < upper");
-            }
-            setAlpha(alpha);
-            setLower(lower);
-            setUpper(upper);
-
-        }
-
-        public int getColor() {
-
-            //随机数是前闭  后开
-
-            int red = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
-            int green = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
-            int blue = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
-
-
-            return Color.argb(getAlpha(), red, green, blue);
-        }
-
-        public int getAlpha() {
-            return alpha;
-        }
-
-        public void setAlpha(int alpha) {
-            if (alpha > 255) alpha = 255;
-            if (alpha < 0) alpha = 0;
-            this.alpha = alpha;
-        }
-
-        public int getLower() {
-            return lower;
-        }
-
-        public void setLower(int lower) {
-            if (lower < 0) lower = 0;
-            this.lower = lower;
-        }
-
-        public int getUpper() {
-            return upper;
-        }
-
-        public void setUpper(int upper) {
-            if (upper > 255) upper = 255;
-            this.upper = upper;
-        }
+    public static boolean isTextColorDark(int color) {
+        float a = (Color.red(color) * 0.299f + Color.green(color) * 0.587f + Color.blue(color) * 0.114f);
+        return a > 180;
     }
 
     /**
@@ -172,7 +122,6 @@ public class DrawableUtils {
         return getStateListDrawable(getRectDrawable(pressedArgb, cornerRadius), getRectDrawable(normalArgb, cornerRadius));
     }
 
-
     /**
      * 得到随机背景色并且带选择器, 并且可以设置圆角
      *
@@ -203,7 +152,6 @@ public class DrawableUtils {
 
     }
 
-
     /**
      * 颜色选择器
      *
@@ -217,7 +165,6 @@ public class DrawableUtils {
                 new int[][]{{android.R.attr.state_enabled, android.R.attr.state_pressed}, {android.R.attr.state_enabled}},
                 new int[]{pressedArgb, normalArgb});
     }
-
 
     /**
      * 得到空心的效果，一般作为默认的效果
@@ -272,5 +219,64 @@ public class DrawableUtils {
         ForegroundColorSpan colorSpan = new ForegroundColorSpan(color);
         spannableString.setSpan(colorSpan, 0, msg.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         return spannableString;
+    }
+
+    /**
+     * 随机颜色
+     */
+    public static class RandomColor {
+        int alpha;
+        int lower;
+        int upper;
+
+        public RandomColor(int alpha, int lower, int upper) {
+            if (upper <= lower) {
+                throw new IllegalArgumentException("must be lower < upper");
+            }
+            setAlpha(alpha);
+            setLower(lower);
+            setUpper(upper);
+
+        }
+
+        public int getColor() {
+
+            //随机数是前闭  后开
+
+            int red = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
+            int green = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
+            int blue = getLower() + new Random().nextInt(getUpper() - getLower() + 1);
+
+
+            return Color.argb(getAlpha(), red, green, blue);
+        }
+
+        public int getAlpha() {
+            return alpha;
+        }
+
+        public void setAlpha(int alpha) {
+            if (alpha > 255) alpha = 255;
+            if (alpha < 0) alpha = 0;
+            this.alpha = alpha;
+        }
+
+        public int getLower() {
+            return lower;
+        }
+
+        public void setLower(int lower) {
+            if (lower < 0) lower = 0;
+            this.lower = lower;
+        }
+
+        public int getUpper() {
+            return upper;
+        }
+
+        public void setUpper(int upper) {
+            if (upper > 255) upper = 255;
+            this.upper = upper;
+        }
     }
 }
