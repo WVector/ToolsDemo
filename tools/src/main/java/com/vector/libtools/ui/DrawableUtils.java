@@ -113,6 +113,17 @@ public class DrawableUtils {
 
     /**
      * @param cornerRadius 圆角半径
+     * @param normalArgb   正常的颜色
+     * @return 状态选择器
+     */
+
+    public static StateListDrawable getDrawable(int cornerRadius, int normalArgb) {
+        return getDrawable(cornerRadius, colorDeep(normalArgb), normalArgb);
+    }
+
+
+    /**
+     * @param cornerRadius 圆角半径
      * @param pressedArgb  按下颜色
      * @param normalArgb   正常的颜色
      * @return 状态选择器
