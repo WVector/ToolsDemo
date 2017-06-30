@@ -2,7 +2,10 @@ package com.vector.libtools.timer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+
+import static com.vector.libtools.timer.TimeUtils.formatTime;
 
 /**
  * Created by fengjunming_t on 2017/6/15 0015.
@@ -94,5 +97,61 @@ public class TimeUtil {
             e.printStackTrace();
         }
         return 0;
+    }
+
+
+    /**
+     * 以友好的方式显示时间
+     *
+     * @param time 要格式化的时间
+     * @return 友好提示
+     */
+    public static String friendlyTime(Date time) {
+        if (time == null) {
+            return "Unknown";
+        }
+        String resultTime = "";
+        Calendar calendar = Calendar.getInstance();
+        long lDay = time.getTime() / (24 * 60 * 60 * 1000);
+        long cDay = calendar.getTimeInMillis() / (24 * 60 * 60 * 1000);
+
+        int days = (int) (cDay - lDay);
+
+        int lYear = Integer.parseInt(formatTime("yyyy", time.getTime()));
+        int cYear = Integer.parseInt(formatTime("yyyy", calendar.getTimeInMillis()));
+
+        int years = cYear - lYear;
+
+        if (years == 0) {
+            //一年之内
+            if (days == 0) {
+                //一天之内
+                int hour = (int) ((calendar.getTimeInMillis() - time.getTime()) / (60 * 60 * 1000));
+                if (hour == 0) {
+                    //一小时之内
+                    int minute = (int) ((calendar.getTimeInMillis() - time.getTime()) / (60 * 1000));
+                    if (minute == 0) {
+                        //一分钟之内
+                        resultTime = "刚刚";
+                    } else {
+                        resultTime = minute + "分钟前";
+                    }
+                } else {
+                    resultTime = hour + "小时前";
+                }
+            } else if (days == 1) {
+                resultTime = "昨天";
+            } else if (days == 2) {
+                resultTime = "前天";
+            } else if (days > 2) {
+                //	        } else if (days > 2 && days <= 10) {
+                //		    resultTime = days + "天前";
+                //	        } else if (days > 10) {
+                resultTime = formatTime("M月d日", time.getTime());
+            }
+        } else {
+            resultTime = formatTime("yy年M月d日", time.getTime());
+        }
+        return resultTime;
     }
 }

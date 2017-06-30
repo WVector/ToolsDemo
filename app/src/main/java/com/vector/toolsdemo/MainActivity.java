@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.vector.libtools.ui.DrawableUtils;
+import com.vector.libtools.ui.ColorUtil;
 
 import static com.vector.toolsdemo.R.id.btn;
 
@@ -40,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("MainActivity", "v:" + v);
 
-        button.setBackgroundDrawable(DrawableUtils.getDrawable(6, 3, Color.MAGENTA, Color.LTGRAY));
-
 
         final ImageView srcIv = (ImageView) findViewById(R.id.iv_src);
         final ImageView descIv = (ImageView) findViewById(R.id.iv_desc);
@@ -53,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 int red = 0xffFF0000;
                 srcIv.setBackgroundColor(red);
 
-                descIv.setBackgroundColor(DrawableUtils.colorDeep(red));
+                descIv.setBackgroundColor(ColorUtil.colorDeep(red));
             }
         });
 
